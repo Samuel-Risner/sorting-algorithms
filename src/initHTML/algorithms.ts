@@ -2,6 +2,7 @@ import type Data from "../data";
 import type { T_Algorithm } from "../types";
 import bubbleSort from "../algorithms/bubble_sort";
 import { SETTINGS } from "../settings";
+import quick_sort from "../algorithms/quick_sort";
 
 function createBtn(parent: HTMLElement, text: string, data: Data, algorithm: T_Algorithm): void {
     const btn = document.createElement("button");
@@ -17,7 +18,7 @@ function createBtn(parent: HTMLElement, text: string, data: Data, algorithm: T_A
 }
 
 export default function initAlgorithmHTML(parent: HTMLElement, data: Data): void {
-    // bubble sort
     createBtn(parent, "Bubble Sort", data, bubbleSort);
+    createBtn(parent, "Quick Sort", data, quick_sort);
 
 }
