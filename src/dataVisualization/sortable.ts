@@ -29,7 +29,6 @@ export default class Sortable {
     }
 
     public select(index: number): void {
-        const e = this.elements[index];
         this.elements[index].style.backgroundColor = "yellow";
     }
 
