@@ -10,6 +10,7 @@ export const SETTINGS = {
         DEFAULT: [1, 9] as [number, number],
         PRESETS: [
             [1, 9],
+            [1, 25],
             [1, 50],
             [1, 100]
         ] as [number, number][]
