@@ -50,5 +50,5 @@ export default function initDelayHTML(parent: HTMLElement, data: Data): void {
     }
 
     if (!foundDefault)
-        console.warn("Could not find default delay");
+        console.warn("Could not find default delay, check settings.ts");
 }
