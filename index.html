@@ -10,41 +10,64 @@
     <div class="flex flex-col text-center gap-4">
       <div id="color_mode_container"></div>
 
-      <div class="text-xl font-bold">Input</div>
-      <div class="flex flex-row m-auto gap-4">
-        <button id="btn_input_default" class="btn-primary" disabled>default</button>
-        <button id="btn_input_preset" class="btn-primary">preset</button>
-        <button id="btn_input_custom" class="btn-primary">custom</button>
-      </div>
-      <div id="container_input_default">
-        <!-- will be filled via JS -->
-      </div>
-      <div hidden id="container_input_preset" class="flex flex-row gap-4 text-center m-auto">
-        <!-- will be filled via JS -->
-      </div>
-      <div id="container_input_custom" hidden class="flex flex-col gap-4 text-center m-auto">
-        <div>
-          <div>Enter numbers:</div>
-          <div>Use any character that is not a number as a divider</div>
-        </div>
-        <textarea id="textarea_input_custom" class="bg-gray-300 rounded-xl rounded-br-none py-1 px-2 resize m-auto"></textarea><!-- will be filled via JS -->
-        <button id="btn_apply_custom_input" class="btn-sub m-auto">Apply</button>
-      </div>
-      
-      <div class="text-xl font-bold">Visual</div>
+      <!-- visual -->
+
       <div id="main_visual" class="m-auto"><!-- will be filled via JS --></div>
       <button hidden id="btn_step" class="btn-primary">Step</button>
-      
-      <div class="text-xl font-bold">Select algorithm</div>
-      <div id="select_algorithm"><!-- will be filled via JS --></div>
-      
-      <div class="text-xl font-bold">Delay</div>
-      <div id="delay" class="flex flex-row gap-4 m-auto"><!-- will be filled via JS --></div>
-      
-      <div class="text-xl font-bold">Start</div>
-      <div  class="flex flex-row gap-4 m-auto">
-        <button id="btn_shuffle" class="btn-primary">Shuffle</button>
-        <button id="btn_start" class="btn-primary">Start</button>
+
+      <!-- remaining page contents, will be hidden when algorithm is running -->
+
+      <div class="flex flex-col gap-4 pt-16">
+
+        <!-- data input -->
+  
+        <div class="text-xl font-bold">Input</div>
+  
+        <div class="flex flex-row m-auto gap-4">
+          <button id="btn_input_default" class="btn-primary" disabled>default</button>
+          <button id="btn_input_preset" class="btn-primary">preset</button>
+          <button id="btn_input_custom" class="btn-primary">custom</button>
+        </div>
+  
+        <div id="container_input_default"><!-- will be filled via JS --></div>
+  
+        <div hidden id="container_input_preset" class="flex flex-row gap-4 m-auto"><!-- will be filled via JS --></div>
+  
+        <div id="container_input_custom" hidden class="flex flex-col gap-4 m-auto">
+          <div>
+            <div>Enter numbers:</div>
+            <div>(Use any character that is not a number as a divider)</div>
+          </div>
+          <textarea id="textarea_input_custom" class="bg-gray-300 rounded-xl rounded-br-none py-1 px-2 resize m-auto"><!-- will be overwritten via JS --></textarea>
+          <button id="btn_apply_custom_input" class="btn-sub m-auto">Apply</button>
+        </div>
+        
+        <!-- algorithm selection -->
+        
+        <div class="text-xl font-bold">Select algorithm</div>
+        <div id="select_algorithm" class="flex flex-row gap-4 m-auto"><!-- will be filled via JS --></div>
+        
+        <!-- delay -->
+  
+        <div class="text-xl font-bold">Delay</div>
+        <div id="delay" class="flex flex-row gap-4 m-auto"><!-- will be filled via JS --></div>
+        
+        <!-- start -->
+  
+        <div class="text-xl font-bold">Start</div>
+        <div  class="flex flex-row gap-4 m-auto">
+          <button id="btn_shuffle" class="btn-primary">Shuffle</button>
+          <button id="btn_start" class="btn-primary">Start</button>
+        </div>
+
+      </div>
+
+      <!-- footnotes -->
+
+      <div class="pt-16">
+        <div>Author: Samuel Risner</div>
+        <a class="link" target="_blank" href="https://github.com/Samuel-Risner/sorting-algorithms">GitHub</a>
+        <div>Licensed under <a class="link" target="_blank" href="https://raw.githubusercontent.com/Samuel-Risner/sorting-algorithms/refs/heads/main/LICENSE">GPL-3.0</a> </div>
       </div>
     </div>
 

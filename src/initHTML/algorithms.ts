@@ -4,21 +4,31 @@ import bubbleSort from "../algorithms/bubble_sort";
 import { SETTINGS } from "../settings";
 import quick_sort from "../algorithms/quick_sort";
 
-function createBtn(parent: HTMLElement, text: string, data: Data, algorithm: T_Algorithm): void {
-    const btn = document.createElement("button");
-    parent.appendChild(btn);
-    btn.textContent = text;
-    btn.className = "btn-primary";
-
-    if (algorithm === SETTINGS.DEFAULT_ALGORITHM) {
-        btn.disabled = true;
-    }
-
-    btn.addEventListener("click", () => data.algorithm = algorithm );
-}
-
 export default function initAlgorithmHTML(parent: HTMLElement, data: Data): void {
-    createBtn(parent, "Bubble Sort", data, bubbleSort);
-    createBtn(parent, "Quick Sort", data, quick_sort);
+    const algorithms: [T_Algorithm, string][] = [
+        [bubbleSort, "Bubble Sort"],
+        [quick_sort, "Quick Sort"]
+    ];
+
+    let curBtn: HTMLButtonElement;
+
+    for (const d of algorithms) {
+        const btn = document.createElement("button");
+        parent.appendChild(btn);
+        btn.textContent = d[1];
+        btn.className = "btn-primary";
+
+        if (d[0] === SETTINGS.DEFAULT_ALGORITHM) {
+            btn.disabled = true;
+            curBtn = btn;
+        }
+
+        btn.addEventListener("click", () => {
+            data.algorithm = d[0];
+            curBtn.disabled = false;
+            btn.disabled = true;
+            curBtn = btn;
+        });
+    }
 
 }

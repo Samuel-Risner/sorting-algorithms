@@ -10,6 +10,10 @@
     @apply px-2 pb-[1px] border-4 border-gray-400 rounded-xl disabled:bg-gray-400
 }
 
+.link {
+    @apply text-sky-500
+}
+
 [hidden] {
     display: none !important;
 }
