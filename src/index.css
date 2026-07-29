@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn-primary {
+    @apply px-2 pb-[1px] border-4 border-gray-400 rounded-xl disabled:bg-gray-400
+}
+
+.btn-sub {
+    @apply px-2 pb-[1px] border-4 border-gray-400 rounded-xl disabled:bg-gray-400
+}
+
+[hidden] {
+    display: none !important;
+}
