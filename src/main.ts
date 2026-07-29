@@ -7,6 +7,8 @@ import "./index.css";
 
 const EL_colorModeContainer: HTMLElement | null = document.getElementById("color_mode_container");
 
+const EL_config: HTMLElement | null = document.getElementById("config");
+
 const BTN_inputDefault: HTMLButtonElement | null = document.getElementById("btn_input_default") as HTMLButtonElement | null;
 const BTN_inputPreset: HTMLButtonElement | null = document.getElementById("btn_input_preset") as HTMLButtonElement | null;
 const BTN_inputCustom: HTMLButtonElement | null = document.getElementById("btn_input_custom") as HTMLButtonElement | null;
@@ -29,7 +31,9 @@ const BTN_start: HTMLElement | null = document.getElementById("btn_start");
 
 if (
     EL_colorModeContainer === null ||
-    
+
+    EL_config === null ||
+
     BTN_inputDefault === null ||
     BTN_inputPreset === null ||
     BTN_inputCustom === null ||
@@ -67,6 +71,8 @@ initDelayHTML(EL_delay, data);
 
 BTN_shuffle.addEventListener("click", () => data.visualizer.shuffleMainVisual() );
 
-BTN_start.addEventListener("click", () => {
-    data.algorithm(data.sortable, data.delayMS);
+BTN_start.addEventListener("click", async () => {
+    EL_config.hidden = true;
+    await data.algorithm(data.sortable, data.delayMS);
+    EL_config.hidden = false;
 });
