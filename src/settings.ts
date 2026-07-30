@@ -2,8 +2,8 @@ import bubbleSort from "./algorithms/bubble_sort";
 
 export const SETTINGS = {
     DELAY: {
-        OPTIONS_MS: [0, 100, 500],
-        OPTIONS_SEC: [1, 5],
+        OPTIONS_MS: [0, 10, 100, 500],
+        OPTIONS_SEC: [1, 2, 5],
         DEFAULT_MS: 500 // should be one of the above delay values
     },
 
