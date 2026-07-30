@@ -65,7 +65,7 @@ async function quickSortRecursive(sortable: Sortable, start: number, end: number
     await quickSortRecursive(sortable, switchIndex+1, end, delayMS);
 }
 
-export default async function quick_sort(sortable: Sortable, delayMS: number): Promise<void> {
+export default async function quickSort(sortable: Sortable, delayMS: number): Promise<void> {
     await quickSortRecursive(sortable, 0, sortable.len()-1, delayMS);
 
     console.log("Finished quick sort!");

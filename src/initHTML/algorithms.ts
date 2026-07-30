@@ -2,12 +2,12 @@ import type Data from "../data";
 import type { T_Algorithm } from "../types";
 import bubbleSort from "../algorithms/bubble_sort";
 import { SETTINGS } from "../settings";
-import quick_sort from "../algorithms/quick_sort";
+import quickSort from "../algorithms/quick_sort";
 
 export default function initAlgorithmHTML(parent: HTMLElement, data: Data): void {
     const algorithms: [T_Algorithm, string][] = [
         [bubbleSort, "Bubble Sort"],
-        [quick_sort, "Quick Sort"]
+        [quickSort, "Quick Sort"]
     ];
 
     let curBtn: HTMLButtonElement;
