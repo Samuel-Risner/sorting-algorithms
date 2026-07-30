@@ -16,8 +16,10 @@ npm i -D
 npm run dev
 ```
 
-<!-- ## Building web app
+## Building web app
 
 ```sh
 npm run build
-``` -->
+```
+
+Make sure that the folder in `vite.config.ts` in configured directly beforehand
