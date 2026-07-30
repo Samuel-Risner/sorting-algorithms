@@ -14,6 +14,10 @@
     @apply text-sky-500
 }
 
+.visual {
+    @apply bg-yellow-500 disabled:bg-red-500
+}
+
 [hidden] {
     display: none !important;
 }

@@ -3,7 +3,7 @@ import valueToHeight from "../helpers/valueToHeight";
 export default class Sortable {
 
     private container: HTMLDivElement;
-    private elements: HTMLDivElement[];
+    private elements: HTMLInputElement[];
     private data: number[];
 
     constructor(parent: HTMLElement, data: number[]) {
@@ -16,28 +16,29 @@ export default class Sortable {
         this.elements = [];
 
         data.forEach((value, index) => {
-            const e = document.createElement("div");
+            const e = document.createElement("input");
             this.elements.push(e);
+            e.disabled = true;
             this.container.appendChild(e);
 
             e.className = "flex";
             e.style.order = `${index}`;
             e.style.height = valueToHeight(value);
             e.style.width = "20px";
-            e.style.backgroundColor = "red";
+            e.className = "visual";
         })
     }
 
     public select(index: number): void {
-        this.elements[index].style.backgroundColor = "yellow";
+        this.elements[index].disabled = false;
     }
 
     public unselect(index: number): void {
-        this.elements[index].style.backgroundColor = "red";
+        this.elements[index].disabled = true;
     }
 
     public switch(index1: number, index2: number) {
-        const tempEl: HTMLDivElement = this.elements[index1];
+        const tempEl: HTMLInputElement = this.elements[index1];
         this.elements[index1] = this.elements[index2];
         this.elements[index2] = tempEl;
 
