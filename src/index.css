@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .btn-primary {
-    @apply px-2 pb-[1px] border-4 border-gray-400 rounded-xl disabled:bg-gray-400
+    @apply px-2 pb-[1px] border-4 border-gray-400 dark:border-white rounded-xl disabled:bg-gray-400 dark:disabled:bg-white dark:disabled:text-black
 }
 
 .btn-sub {
-    @apply px-2 pb-[1px] border-4 border-gray-400 rounded-xl disabled:bg-gray-400
+    @apply px-2 pb-[1px] border-4 border-gray-400 dark:border-white rounded-xl disabled:bg-gray-400 dark:disabled:bg-white dark:disabled:text-black
 }
 
 .link {

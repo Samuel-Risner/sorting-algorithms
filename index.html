@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sorting algorithms</title>
   </head>
-  <body>
+  <body class="bg-white dark:bg-black text-black dark:text-white">
     <div class="flex flex-col text-center gap-4">
-      <div id="color_mode_container"></div>
-
+      
       <!-- visual -->
 
       <div id="main_visual" class="m-auto"><!-- will be filled via JS --></div>
@@ -18,6 +17,17 @@
       <!-- remaining page contents, will be hidden when algorithm is running -->
 
       <div id="config" class="flex flex-col gap-4 pt-16">
+
+        <!-- light/dark mode -->
+      
+        <div class="flex m-auto">
+          <button id="btn_lightmode" class="visible dark:invisible">
+            <img class="w-10 h-10 dark:w-0 dark:h-0" src="/lightmode.svg">
+          </button>
+          <button id="btn_darkmode" class="invisible dark:visible">
+            <img class="w-0 h-0 dark:w-10 dark:h-10" src="/darkmode.svg">
+          </button>
+        </div>
 
         <!-- data input -->
   
@@ -38,7 +48,7 @@
             <div>Enter numbers:</div>
             <div>(Use any character that is not a number as a divider)</div>
           </div>
-          <textarea id="textarea_input_custom" class="bg-gray-300 rounded-xl rounded-br-none py-1 px-2 resize m-auto"><!-- will be overwritten via JS --></textarea>
+          <textarea id="textarea_input_custom" class="bg-gray-300 dark:bg-white dark:text-black rounded-xl rounded-br-none py-1 px-2 resize m-auto"><!-- will be overwritten via JS --></textarea>
           <button id="btn_apply_custom_input" class="btn-sub m-auto">Apply</button>
         </div>
         
