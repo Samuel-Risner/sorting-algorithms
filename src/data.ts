@@ -8,12 +8,14 @@ export default class Data {
     public visualizer: Visualizer;
     public sortable: Sortable;
     public pause: () => Promise<void>;
+    public step: boolean;
     public algorithm: T_Algorithm;
 
     constructor(visualizer: Visualizer) {
         this.visualizer = visualizer;
         this.sortable = visualizer.getMainSortable();
         this.pause = async () => {};
+        this.step = false;
         this.algorithm = SETTINGS.DEFAULT_ALGORITHM;
     }
 }
