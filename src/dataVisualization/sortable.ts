@@ -3,7 +3,7 @@ import valueToHeight from "../helpers/valueToHeight";
 export default class Sortable {
 
     private container: HTMLDivElement;
-    private elements: HTMLInputElement[];
+    private elements: HTMLButtonElement[];
     private data: number[];
 
     constructor(parent: HTMLElement, data: number[]) {
@@ -16,11 +16,11 @@ export default class Sortable {
         this.elements = [];
 
         data.forEach((value, index) => {
-            const e = document.createElement("input");
+            const e = document.createElement("button");
             this.elements.push(e);
-            e.disabled = true;
             this.container.appendChild(e);
-
+            
+            e.disabled = true;
             e.className = "flex";
             e.style.order = `${index}`;
             e.style.height = valueToHeight(value);
