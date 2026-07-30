@@ -1,7 +1,7 @@
 import type Sortable from "../dataVisualization/sortable";
 import pause from "../helpers/pause";
 
-function selectPivot(sortable: Sortable, start: number, end: number): number {
+function selectPivot(end: number): number {
     return end;
 }
 
@@ -10,7 +10,7 @@ async function quickSortRecursive(sortable: Sortable, start: number, end: number
         return;
 
     // select pivot element
-    const pivotIndex = selectPivot(sortable, start, end);
+    const pivotIndex = selectPivot(end);
     const pivotValue = sortable.at(pivotIndex);
     sortable.select(pivotIndex);
     await pause(delayMS);
