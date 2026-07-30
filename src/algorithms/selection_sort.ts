@@ -1,7 +1,6 @@
 import type Sortable from "../dataVisualization/sortable";
-import pause from "../helpers/pause";
 
-export default async function selectionSort(sortable: Sortable, delayMS: number): Promise<void> {
+export default async function selectionSort(sortable: Sortable, pause: () => Promise<void>): Promise<void> {
     let len: number = sortable.len();
     let minValue: number;
     let minIndex: number;
@@ -10,28 +9,28 @@ export default async function selectionSort(sortable: Sortable, delayMS: number)
         minValue = sortable.at(i);
         minIndex = i;
         sortable.select(i);
-        await pause(delayMS);
+        await pause();
 
         for (let j = i+1; j < len; j++) {
             sortable.select(j);
-            await pause(delayMS);
+            await pause();
 
             if (sortable.at(j) < minValue) {
                 sortable.unselect(minIndex);
-                await pause(delayMS);
+                await pause();
 
                 minValue = sortable.at(j);
                 minIndex = j;
             } else {
                 sortable.unselect(j);
-                await pause(delayMS);
+                await pause();
             }
         }
 
         sortable.switch(minIndex, i);
-        await pause(delayMS);
+        await pause();
         sortable.unselect(i);
-        await pause(delayMS);
+        await pause();
     }
 
     console.log("Finished selection sort!");

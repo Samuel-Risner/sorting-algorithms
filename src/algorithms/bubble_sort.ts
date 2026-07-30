@@ -1,7 +1,6 @@
 import type Sortable from "../dataVisualization/sortable";
-import pause from "../helpers/pause";
 
-export default async function bubbleSort(sortable: Sortable, delayMS: number): Promise<void> {
+export default async function bubbleSort(sortable: Sortable, pause: () => Promise<void>): Promise<void> {
     let len: number = sortable.len();
     let finished: boolean = true;
 
@@ -17,7 +16,7 @@ export default async function bubbleSort(sortable: Sortable, delayMS: number): P
                 finished = false;
             }
 
-            await pause(delayMS);
+            await pause();
 
             sortable.unselect(j);
             sortable.unselect(j-1);

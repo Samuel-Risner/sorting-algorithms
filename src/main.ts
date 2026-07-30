@@ -100,13 +100,13 @@ BTN_shuffle.addEventListener("click", () => data.visualizer.shuffleMainVisual() 
 
 BTN_start.addEventListener("click", async () => {
     EL_config.hidden = true;
-    await data.algorithm(data.sortable, data.delayMS);
+    await data.algorithm(data.sortable, data.pause);
     EL_config.hidden = false;
 });
 
 BTN_startDelay.addEventListener("click", async () => {
     EL_config.hidden = true;
     await pause(5000);
-    await data.algorithm(data.sortable, data.delayMS);
+    await data.algorithm(data.sortable, data.pause);
     EL_config.hidden = false;
 });

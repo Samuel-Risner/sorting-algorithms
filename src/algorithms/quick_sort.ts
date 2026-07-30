@@ -1,11 +1,10 @@
 import type Sortable from "../dataVisualization/sortable";
-import pause from "../helpers/pause";
 
 function selectPivot(end: number): number {
     return end;
 }
 
-async function quickSortRecursive(sortable: Sortable, start: number, end: number, delayMS: number): Promise<void> {
+async function quickSortRecursive(sortable: Sortable, start: number, end: number, pause: () => Promise<void>): Promise<void> {
     if (start >= end)
         return;
 
@@ -13,11 +12,11 @@ async function quickSortRecursive(sortable: Sortable, start: number, end: number
     const pivotIndex = selectPivot(end);
     const pivotValue = sortable.at(pivotIndex);
     sortable.select(pivotIndex);
-    await pause(delayMS);
+    await pause();
     
     // move pivot element to end
     sortable.select(end);
-    await pause(delayMS);
+    await pause();
     sortable.switch(pivotIndex, end);
     
     if (pivotIndex != end)
@@ -29,14 +28,14 @@ async function quickSortRecursive(sortable: Sortable, start: number, end: number
     // sort each element (except for the pivot element)
     for (let i = start; i < end; i++) {
         sortable.select(i);
-        await pause(delayMS);
+        await pause();
         
         if (sortable.at(i) < pivotValue) {
             sortable.select(switchIndex);
-            await pause(delayMS);
+            await pause();
 
             sortable.switch(i, switchIndex);
-            await pause(delayMS);
+            await pause();
 
             sortable.unselect(switchIndex);
             switchIndex++;
@@ -45,28 +44,28 @@ async function quickSortRecursive(sortable: Sortable, start: number, end: number
         sortable.unselect(i);
     }
 
-    await pause(delayMS);
+    await pause();
 
     sortable.select(switchIndex);
 
-    await pause(delayMS);
+    await pause();
 
     sortable.switch(end, switchIndex);
 
-    await pause(delayMS);
+    await pause();
 
     sortable.unselect(end);
     sortable.unselect(switchIndex);
 
-    await pause(delayMS);
+    await pause();
 
-    await quickSortRecursive(sortable, start, switchIndex-1, delayMS);
-    await pause(delayMS);
-    await quickSortRecursive(sortable, switchIndex+1, end, delayMS);
+    await quickSortRecursive(sortable, start, switchIndex-1, pause);
+    await pause();
+    await quickSortRecursive(sortable, switchIndex+1, end, pause);
 }
 
-export default async function quickSort(sortable: Sortable, delayMS: number): Promise<void> {
-    await quickSortRecursive(sortable, 0, sortable.len()-1, delayMS);
+export default async function quickSort(sortable: Sortable, pause: () => Promise<void>): Promise<void> {
+    await quickSortRecursive(sortable, 0, sortable.len()-1, pause);
 
     console.log("Finished quick sort!");
 }

@@ -1,4 +1,5 @@
 import type Data from "../data";
+import pause from "../helpers/pause";
 import { SETTINGS } from "../settings";
 
 export default function initDelayHTML(parent: HTMLElement, data: Data): void {
@@ -23,7 +24,7 @@ export default function initDelayHTML(parent: HTMLElement, data: Data): void {
 
             btn.disabled = true;
             curBtn = btn;
-            data.delayMS = delayMS;
+            data.pause = async () => await pause(delayMS);
         });
     }
 
@@ -45,7 +46,7 @@ export default function initDelayHTML(parent: HTMLElement, data: Data): void {
 
             btn.disabled = true;
             curBtn = btn;
-            data.delayMS = delaySEC*1000;
+            data.pause = async () => await pause(delaySEC*1000);
         });
     }
 
