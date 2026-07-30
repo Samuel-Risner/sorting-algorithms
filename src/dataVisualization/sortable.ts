@@ -38,7 +38,7 @@ export default class Sortable {
     }
 
     public switch(index1: number, index2: number) {
-        const tempEl: HTMLInputElement = this.elements[index1];
+        const tempEl: HTMLButtonElement = this.elements[index1];
         this.elements[index1] = this.elements[index2];
         this.elements[index2] = tempEl;
 
