@@ -9,7 +9,7 @@ export default class Sortable {
     constructor(parent: HTMLElement, data: number[]) {
         this.container = document.createElement("div");
         parent.appendChild(this.container);
-        this.container.className = "flex flex-row gap-2";
+        this.container.className = "flex flex-row gap-2 items-end";
 
         this.data = data;
 
@@ -50,16 +50,28 @@ export default class Sortable {
         this.elements[index2].style.order = `${index2}`;
     }
 
+    private output(): void {
+        let o = "";
+
+        for (const d of this.data) {
+            o += `${d} `;
+        }
+
+        console.log(o);
+    }
+
     public shuffle() {
         let r1: number;
         let r2: number;
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 100 * this.elements.length; i++) {
             r1 = Math.floor(Math.random() * this.elements.length);
             r2 = Math.floor(Math.random() * this.elements.length);
 
             this.switch(r1, r2);
         }
+
+        this.output();
     }
 
     public at(index: number): number {
