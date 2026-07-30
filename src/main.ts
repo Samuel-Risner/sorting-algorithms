@@ -4,6 +4,7 @@ import initDataInputHTML from "./initHTML/dataInput";
 import Visualizer from "./dataVisualization/visualizer";
 import initDelayHTML from "./initHTML/delay";
 import "./index.css";
+import pause from "./helpers/pause";
 
 const EL_mainVisual = document.getElementById("main_visual");
 const BTN_step = document.getElementById("btn_step");
@@ -29,6 +30,7 @@ const EL_delay = document.getElementById("delay");
 
 const BTN_shuffle = document.getElementById("btn_shuffle");
 const BTN_start = document.getElementById("btn_start");
+const BTN_startDelay = document.getElementById("btn_start_delay");
 
 if (
     EL_mainVisual === null ||
@@ -54,7 +56,8 @@ if (
     EL_delay === null ||
 
     BTN_shuffle ===  null ||
-    BTN_start === null
+    BTN_start === null ||
+    BTN_startDelay === null
 )
     throw new Error("Could not retrieve element from DOM");
 
@@ -97,6 +100,13 @@ BTN_shuffle.addEventListener("click", () => data.visualizer.shuffleMainVisual() 
 
 BTN_start.addEventListener("click", async () => {
     EL_config.hidden = true;
+    await data.algorithm(data.sortable, data.delayMS);
+    EL_config.hidden = false;
+});
+
+BTN_startDelay.addEventListener("click", async () => {
+    EL_config.hidden = true;
+    await pause(5000);
     await data.algorithm(data.sortable, data.delayMS);
     EL_config.hidden = false;
 });
