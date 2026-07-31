@@ -81,4 +81,19 @@ export default class Sortable {
     public len(): number {
         return this.data.length;
     }
+
+    public move(from: number, to: number): void {
+        if (from === to)
+            return;
+
+        const [e] = this.elements.splice(from, 1);
+        const [d] = this.data.splice(from, 1);
+
+        this.elements.splice(to, 0, e);
+        this.data.splice(to, 0, d);
+
+        for (let i = Math.min(from, to); i < this.elements.length; i++) {
+            this.elements[i].style.order = `${i}`;
+        }
+    }
 }
