@@ -1,4 +1,4 @@
-import bubbleSort from "./algorithms/bubble_sort";
+import bubbleSort from "./algorithms/bubbleSort";
 
 export const SETTINGS = {
     DELAY: {

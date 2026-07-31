@@ -1,11 +1,10 @@
 import type Data from "../data";
 import type { T_Algorithm } from "../types";
-import bubbleSort from "../algorithms/bubble_sort";
+import bubbleSort from "../algorithms/bubbleSort";
 import { SETTINGS } from "../settings";
-import quickSort from "../algorithms/quick_sort";
-// import mergeSort from "../algorithms/merge_sort";
-import selectionSort from "../algorithms/selection_sort";
-import insertionSort from "../algorithms/insertion_sort";
+import quickSort from "../algorithms/quickSort"; 
+import selectionSort from "../algorithms/selectionSort";
+import insertionSort from "../algorithms/insertionSort";
 
 export default function initAlgorithmHTML(parent: HTMLElement, data: Data): void {
     const algorithms: [T_Algorithm, string][] = [
