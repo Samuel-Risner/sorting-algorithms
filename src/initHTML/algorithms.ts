@@ -5,14 +5,15 @@ import { SETTINGS } from "../settings";
 import quickSort from "../algorithms/quickSort"; 
 import selectionSort from "../algorithms/selectionSort";
 import insertionSort from "../algorithms/insertionSort";
+import mergeSort from "../algorithms/mergeSort";
 
 export default function initAlgorithmHTML(parent: HTMLElement, data: Data): void {
     const algorithms: [T_Algorithm, string][] = [
         [bubbleSort, "Bubble Sort"],
         [quickSort, "Quick Sort"],
-        // [mergeSort, "Merge Sort"],
         [selectionSort, "Selection Sort"],
         [insertionSort, "Insertion Sort"],
+        [mergeSort, "Merge Sort"],
     ];
 
     let curBtn: HTMLButtonElement;
