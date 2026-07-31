@@ -5,6 +5,8 @@ export default async function insertionSort(sortable: Sortable, pause: () => Pro
     let j: number;
     let v: number;
 
+    await pause();
+
     for (let i = 1; i < len; i++) {
         j = i;
         v = sortable.at(j);
@@ -40,5 +42,5 @@ export default async function insertionSort(sortable: Sortable, pause: () => Pro
         }
     }
 
-    console.log("Finished insertion sort!");
+    console.info("Finished insertion sort!");
 }

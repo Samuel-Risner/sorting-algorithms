@@ -4,6 +4,8 @@ export default async function bubbleSort(sortable: Sortable, pause: () => Promis
     let len: number = sortable.len();
     let finished: boolean = true;
 
+    await pause();
+
     for (let i = 0; i < len-1; i++) {
         finished = true;
 
@@ -27,5 +29,5 @@ export default async function bubbleSort(sortable: Sortable, pause: () => Promis
             break;
     }
 
-    console.log("Finished bubble sort!");
+    console.info("Finished bubble sort!");
 }

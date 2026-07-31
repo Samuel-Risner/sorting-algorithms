@@ -5,6 +5,8 @@ export default async function selectionSort(sortable: Sortable, pause: () => Pro
     let minValue: number;
     let minIndex: number;
 
+    await pause();
+
     for (let i = 0; i < len-1; i++) {
         minValue = sortable.at(i);
         minIndex = i;
@@ -33,5 +35,5 @@ export default async function selectionSort(sortable: Sortable, pause: () => Pro
         await pause();
     }
 
-    console.log("Finished selection sort!");
+    console.info("Finished selection sort!");
 }
