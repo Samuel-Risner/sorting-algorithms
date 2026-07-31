@@ -14,7 +14,8 @@ export const SETTINGS = {
             [1, 9],
             [1, 25],
             [1, 50],
-            [1, 100]
+            [1, 100],
+            [1, 340],
         ] as [number, number][]
     },
     
