@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   base: '/sorting-algorithms/',
   build: {
-    outDir: './../sorting-algorithms-webapp/'
+    outDir: './../sorting-algorithms-webapp/',
+    emptyOutDir: true
   }
 })
