@@ -1,15 +1,13 @@
-import type Sortable from "../dataVisualization/sortable";
+import type Sortable from "../../dataVisualization/sortable";
 
-function selectPivot(end: number): number {
-    return end;
-}
+type T_pivotFunction = (sortable: Sortable, start: number, end: number) => number;
 
-async function quickSortRecursive(sortable: Sortable, start: number, end: number, pause: () => Promise<void>): Promise<void> {
+async function quickSortRecursive(sortable: Sortable, start: number, end: number, pause: () => Promise<void>, pivotFunction: T_pivotFunction): Promise<void> {
     if (start >= end)
         return;
 
     // select pivot element
-    const pivotIndex = selectPivot(end);
+    const pivotIndex = pivotFunction(sortable, start, end);
     const pivotValue = sortable.at(pivotIndex);
     sortable.select(pivotIndex);
     console.info("select pivot");
@@ -71,12 +69,12 @@ async function quickSortRecursive(sortable: Sortable, start: number, end: number
     console.info("unselect previous");
     await pause();
 
-    await quickSortRecursive(sortable, start, switchIndex-1, pause);
-    await quickSortRecursive(sortable, switchIndex+1, end, pause);
+    await quickSortRecursive(sortable, start, switchIndex-1, pause, pivotFunction);
+    await quickSortRecursive(sortable, switchIndex+1, end, pause, pivotFunction);
 }
 
-export default async function quickSort(sortable: Sortable, pause: () => Promise<void>): Promise<void> {
+export default async function quickSort(sortable: Sortable, pause: () => Promise<void>, pivotFunction: T_pivotFunction): Promise<void> {
     await pause();
-    await quickSortRecursive(sortable, 0, sortable.len()-1, pause);
+    await quickSortRecursive(sortable, 0, sortable.len()-1, pause, pivotFunction);
     console.info("Finished quick sort!");
 }
