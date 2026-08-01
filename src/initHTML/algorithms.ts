@@ -10,6 +10,7 @@ import type Sortable from "../dataVisualization/sortable";
 import pivotFirst from "../algorithms/quickSort/pivotFirst";
 import pivotLast from "../algorithms/quickSort/pivotLast";
 import pivotMedian3 from "../algorithms/quickSort/pivotMedian3";
+import heapSort from "../algorithms/heapSort/heapSort";
 
 export default function initAlgorithmHTML(parent: HTMLElement, data: Data): void {
     const algorithms: [T_Algorithm, string][] = [
@@ -20,6 +21,7 @@ export default function initAlgorithmHTML(parent: HTMLElement, data: Data): void
         [selectionSort, "Selection Sort"],
         [insertionSort, "Insertion Sort"],
         [mergeSort, "Merge Sort"],
+        [heapSort, "Heap Sort"],
     ];
 
     let curBtn: HTMLButtonElement;

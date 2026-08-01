@@ -99,6 +99,8 @@ initDelayHTML(EL_delay, data, BTN_step);
 BTN_shuffle.addEventListener("click", () => data.visualizer.shuffleMainVisual() );
 
 BTN_start.addEventListener("click", async () => {
+    console.log(data);
+    
     EL_config.hidden = true;
     if (data.step)
         BTN_step.hidden = false;
